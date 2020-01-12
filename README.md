@@ -1,24 +1,34 @@
-# README
+# GitXplore
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A platform that allows you to search for public repositories.
 
-Things you may want to cover:
 
-* Ruby version
+### Requirements
+1. Ruby version 2.6.0
+2. Rails 5.2.4
+3. Bundler version 1.17.2
 
-* System dependencies
 
-* Configuration
+### Technology used
+* Language
+  1. Ruby
+* Framework used
+  1. Ruby on Rails
+* Development and testing
+  1. RSpec Rails
+  2. Rubocop
 
-* Database creation
+### Setting up
+1. clone this respository `git clone git@github.com:tomily1/gitxplore.git`.
+2. Open the cloned directory with `cd gitxplore`.
+3. Run `bundle install` to install dependencies
 
-* Database initialization
+4. run server with `rails server`
 
-* How to run the test suite
+## Approach
 
-* Services (job queues, cache servers, search engines, etc.)
+After reading the requirements for searching public repositories on Github's V3 api documentation, I created a very simple web app where I display public repositories from github based on search term provided by user.
 
-* Deployment instructions
+### Author
 
-* ...
+[Tomilayo Israel](https://github.com/tomily1)
