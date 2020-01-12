@@ -5,6 +5,7 @@ class RepositoriesController < ApplicationController
       query = query_params.gsub(/\s+/m, ' ').strip.split(' ').join('+')
       @result = Github.new.search(query)
     end
+  
     render :index
   end
 
