@@ -5,7 +5,9 @@ class RepositoriesController < ApplicationController
       query = query_params[:q].gsub(/\s+/m, ' ').strip.split(' ').join('+')
       search_params = query + '&page=' + page_param(query_params[:page]).to_s
       @github = Github.new
-      @result = @github.search(search_params)
+      @result = Rails.cache.fetch(search_params, :expires_in => 2.minutes) do
+        @github.search(search_params)
+      end
     end
   
     render :index
