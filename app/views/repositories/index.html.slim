@@ -19,7 +19,6 @@ br
           = render partial: "repositories/repo_item", locals: { repo: repo }
   br
   h4.text-center.repo-page
-    = button_to "Prev", repositories_path, method: :get, params: { :q => params[:q], :p => (params[:p].to_i - 1)}, disabled: (params[:p].to_i || 0) <= 0, form_class: 'previous'
-    span   #{params[:p].to_i || 0}  
-    = button_to "Next", repositories_path, method: :get, params: { :q => params[:q], :p => (params[:p].to_i + 1)}, disabled: (params[:p].to_i || 0) >= 100, form_class: 'next'
-  = @result
+    = button_to "Prev", repositories_path, method: :get, params: { :q => params[:q], :page => (params[:page].to_i - 1)}, disabled: (params[:page].to_i || 0) <= 0, form_class: 'previous'
+    span   #{params[:page].to_i || 1}  
+    = button_to "Next", repositories_path, method: :get, params: { :q => params[:q], :page => (params[:page].to_i + 1)}, disabled: (params[:page].to_i || 0) >= 100, form_class: 'next'
