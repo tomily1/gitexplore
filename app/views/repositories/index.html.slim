@@ -2,8 +2,24 @@ br
 br
 /! Search form
 .md-form.mt-0
-  = form_tag('/repositories', :method => 'get', :class => 'form-inline') do
-    / = label_tag(:q, "Search:")
+  = form_tag('/repositories', :method => 'get', :class => 'form-inline', :id => 'repo-search') do
     = text_field_tag(:q, params[:q] || 'Keyword', class: 'form-control search-box')
     = submit_tag("Search", class: 'btn btn-dark')
-  / input.form-control aria-label="Search" placeholder="Search keyword" type="text" /
+
+
+- if @result
+
+  .col-12.col-md-9.px-2
+    .px-2
+      .d-flex.flex-column.flex-md-row.flex-justify-between.border-bottom.pb-3.position-relative.text-center
+        h3.total-results.v-align-middle Showing #{number_with_delimiter(@result["total_count"])} available repository results
+
+      ul.repo-list
+        - @result['items'].each do |repo|
+          = render partial: "repositories/repo_item", locals: { repo: repo }
+  br
+  h4.text-center.repo-page
+    = button_to "Prev", repositories_path, method: :get, params: { :q => params[:q], :p => (params[:p].to_i - 1)}, disabled: (params[:p].to_i || 0) <= 0, form_class: 'previous'
+    span   #{params[:p].to_i || 0}  
+    = button_to "Next", repositories_path, method: :get, params: { :q => params[:q], :p => (params[:p].to_i + 1)}, disabled: (params[:p].to_i || 0) >= 100, form_class: 'next'
+  = @result

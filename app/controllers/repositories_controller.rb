@@ -1,20 +1,25 @@
 class RepositoriesController < ApplicationController
 
   def index
-    if query_params
-      query = query_params.gsub(/\s+/m, ' ').strip.split(' ').join('+')
-      @result = Github.new.search(query)
+    if query_params[:q]
+      query = query_params[:q].gsub(/\s+/m, ' ').strip.split(' ').join('+')
+      search_params = query + '&p=' + page_param(query_params[:p]).to_s
+      @github = Github.new
+      @result = @github.search(search_params)
     end
   
     render :index
   end
 
-  def show
-  end
-
   private
 
+  def page_param(param)
+    page = param.to_i || 0
+
+    (page >= 0 || page <= 100) ? page : 0
+  end
+
   def query_params
-    params.permit(:q)[:q]
+    params.permit(:q, :p)
   end
 end

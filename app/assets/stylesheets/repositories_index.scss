@@ -1,0 +1,81 @@
+.form-control.search-box {
+  width: 70% !important;
+  margin-right: 2%;
+}
+
+.btn-dark {
+  width: 15%;
+}
+
+.total-results {
+  margin-top: 20px;
+}
+
+.repo-list {
+  position: relative;
+}
+
+.repo-list-item {
+  list-style: none;
+}
+
+.f4 {
+  font-size: 16px!important;
+}
+
+.mb-1 {
+  margin-bottom: 4px!important;
+}
+
+.repo-list {
+  padding-left: 0;
+}
+
+.muted-link {
+  color: #586069!important;
+}
+
+.mr-3 {
+  margin-right: 16px!important;
+}
+
+.py-4 {
+  padding-bottom: 1rem !important;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.text-small {
+  font-size: 12px!important;
+}
+
+.repo-language-color {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.f6 {
+  font-size: 12px!important;
+}
+
+.repo-page { 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .previous {
+    margin-right: 1%;
+  }
+
+  .next {
+    margin-left: 1%;
+  }
+}
