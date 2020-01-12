@@ -1,0 +1,9 @@
+br
+br
+/! Search form
+.md-form.mt-0
+  = form_tag('/repositories', :method => 'get', :class => 'form-inline') do
+    / = label_tag(:q, "Search:")
+    = text_field_tag(:q, params[:q] || 'Keyword', class: 'form-control search-box')
+    = submit_tag("Search", class: 'btn btn-dark')
+  / input.form-control aria-label="Search" placeholder="Search keyword" type="text" /
