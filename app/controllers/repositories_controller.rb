@@ -3,9 +3,7 @@
 class RepositoriesController < ApplicationController
   def index
     if query_params[:q]
-      query = query_params[:q].gsub(/\s+/m, ' ').strip.split(' ').join('+')
-      search_params = query + '&page=' + page_param(query_params[:page]).to_s
-      @result = fetch_result(search_params)
+      @result = fetch_result(formatted_query_params)
     end
 
     render :index
@@ -18,6 +16,11 @@ class RepositoriesController < ApplicationController
     Rails.cache.fetch(search_params, expires_in: 2.minutes) do
       github.search(search_params)
     end
+  end
+
+  def formatted_query_params
+    query = query_params[:q].gsub(/\s+/m, ' ').strip.split(' ').join('+')
+    query + '&page=' + page_param(query_params[:page]).to_s
   end
 
   def page_param(param)
