@@ -27,7 +27,7 @@ A platform that allows you to search for public repositories.
 
 ## Approach
 
-After reading the requirements for searching public repositories on Github's V3 api documentation, I created a very simple web app where I display public repositories from github based on search term provided by user.
+After reading the requirements for searching public repositories on Github's V3 api documentation, I created a very simple web app where I display public repositories from github based on search term provided by user. I added caching based on the search parameter which expires in 3 minutes to avoid hitting the api for same search keywords multiple times.
 
 ### Author
 

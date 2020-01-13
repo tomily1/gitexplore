@@ -9,7 +9,7 @@ class RepositoriesController < ApplicationController
 
   def fetch_result(search_params)
     github = Github.new
-    Rails.cache.fetch(search_params, expires_in: 2.minutes) do
+    Rails.cache.fetch(search_params, expires_in: 3.minutes) do
       github.search(search_params)
     end
   end
