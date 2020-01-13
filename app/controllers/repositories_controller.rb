@@ -2,11 +2,7 @@
 
 class RepositoriesController < ApplicationController
   def index
-    if query_params[:q]
-      @result = fetch_result(formatted_query_params)
-    end
-
-    render :index
+    @result = fetch_result(formatted_query_params) if query_params[:q]
   end
 
   private

@@ -1,0 +1,5 @@
+/! Search form
+.md-form.mt-0
+  = form_tag('/repositories', :method => 'get', :class => 'form-inline', :id => 'repo-search') do
+    = text_field_tag(:q, params[:q] || 'Keyword', class: 'form-control search-box')
+    = submit_tag("Search", class: 'btn btn-dark')

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Github
-  HOST = "https://www.github.com"
+  HOST = 'https://www.github.com'
 
   def initialize
     @host = 'https://api.github.com'
